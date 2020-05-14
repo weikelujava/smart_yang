@@ -26,7 +26,7 @@ spring:
       max-pool-prepared-statement-per-connection-size: 20
       connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
 
-  # 配置 rabbitmq服务
+  # 锟斤拷锟斤拷 rabbitmq锟斤拷锟斤拷
   rabbitmq:
     host: localhost
     port: 5672
@@ -34,25 +34,17 @@ spring:
     password: admin
     connection-timeout: 15000
     virtual-host: /
-    #确认消息已经发送到交换机
     publisher-confirm-type: correlated
-    #确认消息已经发送到队列
     publisher-returns: true
     template:
-      # 保证监听有效
       mandatory: true
     listener:
       type: simple
       simple:
-        #限制每次发送一条数据
         prefetch: 1
-        #手动确认
         acknowledge-mode: manual
-        #同一个队列启动几个消费者
         concurrency: 5
-        #启动最大消费者数量
         max-concurrency: 10
-        #消息重试策略相关配置
         retry:
           enabled: true
           max-attempts: 3
@@ -61,7 +53,6 @@ spring:
           initial-interval: 1000ms
           max-interval: 10000ms
         default-requeue-rejected: true
-    #消息确认ACK机制
     publisher-confirms: true
 
 logging:
@@ -79,7 +70,7 @@ mybatis-plus:
 
 
 
-# feign配置
+# feign锟斤拷锟斤拷
 #feign:
 #  okhttp:
 #    enabled: true
@@ -94,11 +85,11 @@ mybatis-plus:
 #      feignName:
 #        connectionTimeout: 30000
 #        readTimeout: 30000
-#  ## 开启Feign请求响应压缩
+#  ## 锟斤拷锟斤拷Feign锟斤拷锟斤拷锟斤拷应压锟斤拷
 #  compression:
 #    request:
 #      enabled: true
-#      # 配置压缩文档类型以及最小压缩的文档大小
+#      # 锟斤拷锟斤拷压锟斤拷锟侥碉拷锟斤拷锟斤拷锟皆硷拷锟斤拷小压锟斤拷锟斤拷锟侥碉拷锟斤拷小
 #      min-request-size: 2048
 #      mime-types: text/xml,application/xml,application/json
 #    response:
@@ -111,3 +102,13 @@ mq:
       common:
         exchange: 'bjgyol.pcenter.fanout.common.exchange'
         queue: 'bjgyol.pcenter.fanout.common.queue'
+#    direct:
+#      common:
+#        exchange: 'bjgyol.pcenter.direct.common.exchange'
+#        queue: 'bjgyol.pcenter.direct.common.queue'
+#        routingkey: 'bjgyol.pcenter.direct.common.routingkey'
+#      dead:
+#        common:
+#          exchange: 'bjgyol.pcenter.direct.dead.common.exchange'
+#          queue: 'bjgyol.pcenter.direct.dead.common.queue'
+#          routingkey: 'bjgyol.pcenter.direct.dead.common.routingkey'

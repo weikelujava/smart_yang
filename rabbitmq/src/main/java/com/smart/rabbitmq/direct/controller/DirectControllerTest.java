@@ -1,7 +1,8 @@
-package com.smart.rabbitmq.fanout.controller;
+package com.smart.rabbitmq.direct.controller;
 
 import com.smart.rabbitmq.common.CommonEntity;
-import com.smart.rabbitmq.fanout.producer.FanoutMqSender;
+import com.smart.rabbitmq.direct.config.DirectMqBeanConfig;
+import com.smart.rabbitmq.direct.producer.DirectMqSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,23 +10,24 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.UUID;
 
 /**
+ * All rights Reserved, Designed By http://www.hollysmart.com.cn
  *
  * @version V1.0
- * @title: FanoutControllerTest
+ * @title: DirectControllerTest
  * @description:
  * @author: lukewei
- * @date: 2020/5/14 15:05
+ * @date: 2020/5/14 17:59
  * @remark: 修改内容
  */
 @RestController
-public class FanoutControllerTest {
+public class DirectControllerTest {
 
     @Autowired
-    private FanoutMqSender fanoutMqSender;
+    private DirectMqSender directMqSender;
 
-
-    @GetMapping("/fanout/send")
+    @GetMapping("/direct/send")
     public void sendMessageTest(){
+
         Long id = System.currentTimeMillis()+ UUID.randomUUID().hashCode();
         String context = "张学友 --> 李香兰 --> 饿狼传说:"+id;
         CommonEntity commonEntity = new CommonEntity();
@@ -37,6 +39,6 @@ public class FanoutControllerTest {
         // 定义当前对象的 DB version 和 Redis中的 version
         commonEntity.setDbEntityVersion(1);
         commonEntity.setRedisEntityVersion(0);
-        fanoutMqSender.sendMessage(commonEntity);
+        directMqSender.sendMessage(commonEntity);
     }
 }
