@@ -32,7 +32,7 @@ public class FanoutConsumer implements ChannelAwareMessageListener {
     @Override
     public void onMessage(Message message, Channel channel) throws Exception {
         String msg = new String(message.getBody(), StandardCharsets.UTF_8);
-        log.info("消费信息：【"+msg+"】");
+        log.info("Fanout 消费信息：【"+msg+"】");
         // 手动签收
         channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
     }

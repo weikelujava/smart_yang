@@ -32,7 +32,7 @@ public class FanoutConsumer1 {
 //    @RabbitListener(queues = "${mq.pcenter.fanout.common.queue}")
     public void process(Message message, @Headers Map<String, Object> headers, Channel channel) throws Exception {
         String msg = new String(message.getBody(), StandardCharsets.UTF_8);
-        System.out.println("消费信息：【"+msg+"】");
+        System.out.println("Fanout1 消费信息：【"+msg+"】");
         channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
     }
 
