@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.smart.rabbitmq.mapper.MQMessageMapper">
+
+    <sql id="mqMessageColumns">
+        a.ID as "id",
+        a.MQ_MESSAGE as "mqMessage",
+        a.MQ_EXCHANGE_NAME as "mqExchangeName",
+        a.ROUTING_KEY as "routingKey",
+        a.MQ_QUEUE_NAME as "mqQueueName",
+        a.MQ_SEND_COUNT as "mqSendCount",
+        a.MQ_SEND_STATUS as "mqSendStatus",
+        a.MQ_NEXT_RETRY as "mqNextRetry",
+        a.DATE_CREATED as "dateCreated",
+        a.DATE_UPDATED as "dateUpdated"
+    </sql>
+
+    <update id="updateStatus">
+        UPDATE blc_mq_message a
+        SET a.MQ_SEND_STATUS = #{status},
+            a.DATE_UPDATED = #{dateUpdated}
+        WHERE a.ID = #{messageId}
+    </update>
+
+    <insert id="saveMqMessage">
+        INSERT INTO blc_mq_message (
+          ID,
+          MQ_MESSAGE,
+          MQ_EXCHANGE_NAME,
+          ROUTING_KEY,
+          MQ_QUEUE_NAME,
+          MQ_SEND_COUNT,
+          MQ_SEND_STATUS,
+          MQ_NEXT_RETRY,
+          DATE_CREATED,
+          DATE_UPDATED
+        )VALUES (
+          #{id},
+          #{mqMessage},
+          #{mqExchangeName},
+          #{routingKey},
+          #{mqQueueName},
+          #{mqSendCount},
+          #{mqSendStatus},
+          #{mqNextRetry},
+          #{dateCreated},
+          #{dateUpdated}
+        )
+    </insert>
+
+    <select id="findMqMessageFailedList" resultType="com.smart.rabbitmq.model.MQMessage">
+        SELECT
+          <include refid="mqMessageColumns"/>
+        FROM blc_mq_message a
+        WHERE a.MQ_SEND_STATUS = 2
+    </select>
+
+    <select id="findMqMessageSuccessCountByMessageId" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM blc_mq_message WHERE ID = #{messageId} AND MQ_SEND_COUNT = 1
+    </select>
+
+</mapper>
