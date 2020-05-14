@@ -22,6 +22,7 @@
         <druid-spring-boot-starter.version>1.1.20</druid-spring-boot-starter.version>
         <mybatis.version>3.5.3</mybatis.version>
         <mybatis-plus-boot-starter.version>3.1.2</mybatis-plus-boot-starter.version>
+        <aspectjweaver.version>1.9.5</aspectjweaver.version>
     </properties>
 
     <dependencies>
@@ -100,7 +101,7 @@
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <version>1.9.5</version>
+            <version>${aspectjweaver.version}</version>
         </dependency>
     </dependencies>
 

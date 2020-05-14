@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
- * All rights Reserved, Designed By http://www.hollysmart.com.cn
  *
  * @version V1.0
  * @title: FanoutMqSender

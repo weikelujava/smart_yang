@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.smart.rabbitmq.lock.DistributedLock;
 
 /**
- * All rights Reserved, Designed By http://www.hollysmart.com.cn
  *
  * @version V1.0.0
  * @title: ISuperService

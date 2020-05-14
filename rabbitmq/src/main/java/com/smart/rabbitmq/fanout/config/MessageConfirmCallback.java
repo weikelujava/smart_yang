@@ -13,7 +13,6 @@ import javax.annotation.PostConstruct;
 import java.util.Date;
 
 /**
- * All rights Reserved, Designed By http://www.hollysmart.com.cn
  *
  * @version V1.0
  * @title: MessageConfirmCallback
@@ -25,9 +24,6 @@ import java.util.Date;
 @Slf4j
 @Component
 public class MessageConfirmCallback implements RabbitTemplate.ConfirmCallback {
-
-    @Autowired
-    private RabbitmqRetrySend rabbitmqRetrySend;
 
     @Autowired
     private IMQMessageService mqMessageService;

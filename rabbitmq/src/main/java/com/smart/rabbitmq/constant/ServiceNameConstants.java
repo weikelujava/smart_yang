@@ -1,7 +1,6 @@
 package com.smart.rabbitmq.constant;
 
 /**
- * All rights Reserved, Designed By http://www.hollysmart.com.cn
  *
  * @version V1.0.0
  * @title: ServiceNameConstants

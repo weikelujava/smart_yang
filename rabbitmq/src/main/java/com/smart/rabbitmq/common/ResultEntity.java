@@ -5,12 +5,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * All rights Reserved, Designed By http://www.hollysmart.com.cn
  *
  * @version V1.0
  * @title: ResultEntity
  * @description: 分布式唯一ID
- * @author: wangyafei
+ * @author: lukewei
  * @date: 2019/12/20 16:37
  * @remark:
  */

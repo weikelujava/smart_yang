@@ -5,12 +5,11 @@ import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 
 /**
- * All rights Reserved, Designed By http://www.hollysmart.com.cn
  *
  * @version V1.0
  * @title: MessageReturnCallback
  * @description:
- * @author: wangyafei
+ * @author: lukewei
  * @date: 2020/4/8 9:48
  * @remark: 修改内容
  */

@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * All rights Reserved, Designed By http://www.hollysmart.com.cn
  *
  * @version V1.0
  * @title: MQMessageMapper
