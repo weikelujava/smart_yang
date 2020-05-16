@@ -1,0 +1,69 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : 10.2.9.151
+ Source Server Type    : MySQL
+ Source Server Version : 50647
+ Source Host           : 10.2.9.151:3306
+ Source Schema         : yol_product_center
+
+ Target Server Type    : MySQL
+ Target Server Version : 50647
+ File Encoding         : 65001
+
+ Date: 16/05/2020 14:39:00
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for blc_category
+-- ----------------------------
+DROP TABLE IF EXISTS `blc_category`;
+CREATE TABLE `blc_category`  (
+  `CATEGORY_ID` bigint(20) NOT NULL,
+  `ACTIVE_END_DATE` datetime(0) NULL DEFAULT NULL,
+  `ACTIVE_START_DATE` datetime(0) NULL DEFAULT NULL,
+  `ARCHIVED` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `BUSINESSHOURS` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `DESCRIPTION` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `DISPLAY_TEMPLATE` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `EXTERNAL_ID` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `FULFILLMENT_TYPE` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `INVENTORY_TYPE` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `LONG_DESCRIPTION` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `NAME` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `OVERRIDE_GENERATED_URL` tinyint(1) NULL DEFAULT NULL,
+  `TAX_CODE` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `TRAFFIC` varchar(2000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `URL` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `URL_KEY` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `DEFAULT_PARENT_CATEGORY_ID` bigint(20) NULL DEFAULT NULL,
+  `NOTICE` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `OPTIMUMSEASON` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `TAG` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `TOURIST_POLICY` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `TRAVELLING_TIPS` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `PRIORITY` int(11) NULL DEFAULT NULL,
+  `DISPLAY_ORDER` int(11) NULL DEFAULT NULL,
+  `LOGO_URL` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `RECEIPT_DELAY_DAY` int(11) NULL DEFAULT NULL,
+  `receipt_Tips` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `IS_SELLING` tinyint(1) NULL DEFAULT 1 COMMENT '商品是否开始销售，默认是true',
+  `MODIFIED_TIME` datetime(0) NULL DEFAULT NULL,
+  `VERSION` int(11) NOT NULL,
+  PRIMARY KEY (`CATEGORY_ID`) USING BTREE,
+  INDEX `CATEGORY_PARENT_INDEX`(`DEFAULT_PARENT_CATEGORY_ID`) USING BTREE,
+  INDEX `CATEGORY_E_ID_INDEX`(`EXTERNAL_ID`) USING BTREE,
+  INDEX `CATEGORY_NAME_INDEX`(`NAME`) USING BTREE,
+  INDEX `CATEGORY_URL_INDEX`(`URL`) USING BTREE,
+  INDEX `CATEGORY_URLKEY_INDEX`(`URL_KEY`) USING BTREE,
+  INDEX `FK55F82D44B177E6`(`DEFAULT_PARENT_CATEGORY_ID`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of blc_category
+INSERT INTO `blc_category` VALUES (10221, NULL, '2017-08-23 14:18:07', 'Y', '08：00-20：00', NULL, 'catalog/subParktemplate', '10221', 'DIGITAL', NULL, NULL, '园林博物馆', 1, NULL, NULL, '/YBG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 33, NULL, 5, NULL, 1, NULL, 3);
+
+SET FOREIGN_KEY_CHECKS = 1;

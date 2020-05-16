@@ -1,0 +1,67 @@
+PUT /_template/template_blc_category
+{
+	"template": "blc_category*",
+	"settings": {
+		"number_of_shards": 3,
+		"number_of_replicas": 3,
+		"index.refresh_interval": "1s"
+	},
+	"aliases": {
+		"blc_category_using": {}
+	},
+	"mappings": {
+		"docs": {
+            "dynamic": true,
+			"_source": {
+				"enabled": true
+			},
+            "dynamic_templates": [
+                {
+                    "strings": {
+                        "match_mapping_type": "string",
+                        "mapping": {
+                            "type": "keyword"
+                        }
+                    }
+                }
+            ],
+			"properties": {
+                "id" : {
+                    "type" : "long",
+                    "index": true,
+                    "index_options": "positions"
+                },
+                "activeEndDate" : {
+                    "type" : "date"
+                },
+                "activeStartDate" : {
+                    "type" : "date"
+                },
+                "name" : {
+                    "type" : "text"
+                },
+                "overrideGeneratedUrl" : {
+                    "type" : "integer"
+                },
+                "defaultParentCategoryId" : {
+                    "type" : "long"
+                },
+                "displayOrder" : {
+                    "type" : "integer"
+                },
+                "receiptDelayDay" : {
+                    "type" : "integer"
+                },
+                "isSelling" : {
+                    "type" : "boolean"
+                },
+                "modifiedTime" : {
+                    "type" : "date"
+                },
+                "version" : {
+                    "type" : "integer"
+                }
+			}
+		}
+	}
+}
