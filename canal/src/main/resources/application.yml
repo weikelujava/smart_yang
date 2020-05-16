@@ -1,0 +1,45 @@
+server:
+  port: 9001
+
+# high level version has pass the config, suggest create with bean,use
+#spring:
+#  data:
+#    elasticsearch:
+#      c
+#      cluster-name: elasticsearch
+#      cluster-nodes: 10.2.9.150:32001
+
+spring:
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+  elasticsearch:
+    rest:
+      uris: 10.2.9.150:32001
+  datasource:
+    dbcp2:
+      test-while-idle: true
+      test-on-borrow: true
+      validation-query: select 1 from dual
+
+# canal config,this canal config in /smart_yang/doc/canal.deployer1
+canal:
+  #ip which is zookeeper's ip
+  ip: localhost:2181
+  # port where is canal's conf (conf/canal.properties -> canal.port)
+  port: 11111
+  # destination where is canal's conf (conf/canal.properties -> canal.destinations)
+  destination: example
+  # canal username
+  username: admin
+  # canal password
+  password: 123456
+
+# elasticsearch config url
+es:
+  url: 10.2.9.150:32001
+
+logging:
+  level:
+    com.smart.canal: debug

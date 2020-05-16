@@ -8,14 +8,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="rabbitmq" />
+        <module name="canal" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="canal" target="1.8" />
       <module name="rabbitmq" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="canal" options="-parameters" />
       <module name="rabbitmq" options="-parameters" />
     </option>
   </component>
