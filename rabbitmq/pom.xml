@@ -20,7 +20,7 @@
         <spring-cloud-openfeign-core.version>2.1.5.RELEASE</spring-cloud-openfeign-core.version>
         <feign-hystrix.version>10.4.0</feign-hystrix.version>
         <druid-spring-boot-starter.version>1.1.20</druid-spring-boot-starter.version>
-        <mybatis.version>3.5.3</mybatis.version>
+        <mybatis.version>3.5.6</mybatis.version>
         <mybatis-plus-boot-starter.version>3.1.2</mybatis-plus-boot-starter.version>
         <aspectjweaver.version>1.9.5</aspectjweaver.version>
     </properties>
